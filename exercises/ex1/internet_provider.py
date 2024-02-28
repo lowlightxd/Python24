@@ -40,7 +40,9 @@ def database_update(database: dict, command_string: str) -> bool:
         database.update({user_name:
                         {"days_left": 90 if subscription == "Standard" else 365, "subscription_type": subscription}})
         return True
+
     if command == "remove" and user_name in database.keys() and database[user_name]["days_left"] <= 1:
         database.pop(user_name)
         return True
+
     return False
