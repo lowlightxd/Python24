@@ -1,0 +1,41 @@
+You are an internet provider and you work with a database.
+
+In company's database (a dictionary) you have String keys that correspond to
+usernames of your users, which they use to log-in to your site,
+and the values for the keys are dictionaries that hold account
+information, like the amount of days remaining before the subscription expires
+as well as the plan type (Standard or Premium).
+
+You need to implement a function that takes the database object and a command
+like "remove-user_name" or "add-different_user_name-subscription_type" and executes the
+command.
+
+All the inputs are valid and you only need to worry about the user_name part,
+because there might already be a user with this name in the database.
+
+The command strings follow strict rules.
+For now you only need to implement two commands: add and remove.
+
+1. add takes two parameters user_name and subscription_type, so the basic
+add command looks something like:
+
+"add-crazy_mike-Premium"
+
+Which means that you add to the database a new user with the name "crazy_mike"
+and set their subscription type to Premium.
+You need to note, that when you add a user with a Standard subscription, it
+starts today and ends in 90 days, but when you add a user with a Premium
+subscription it ends in 365 days.
+
+2. remove takes one parameter user_name, so the basic remove command looks
+like:
+
+"remove-crazy_mike"
+
+Which means that you remove from the database the user with the name
+"crazy_mike" You need to note, that you can only remove the user from the
+database, if their subscription ends within a day, so for example the 
+crazy_mike's subscription still has 2 days, and you are asked to remove the
+user, functon should return false and the database should be unchanged,
+if it was 1 day, you would remove the key from the database, and return true,
+indicating that function ran successfuly. 
