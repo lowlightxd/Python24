@@ -26,6 +26,8 @@ def database_update(database: dict, command_string: str) -> bool:
         command string -> "add-crazy_mike-Premium"
         will add a new user with the name "crazy_mike" to the database, and the "days_left"
         value will be of 365, "subscription_type" will be of "Premium"
+        add, remove, subscription_type should all work despite case.
+        In the resulting database, subscription types should be capitalised.
 
     return True if modification was successful and False otherwise
     """
@@ -36,12 +38,13 @@ def database_update(database: dict, command_string: str) -> bool:
     if len(command_list) == 3:
         subscription = command_list[2]
 
-    if command == "add" and user_name not in database.keys():
+    if command.casefold() == "add" and user_name not in database.keys():
         database.update({user_name:
-                        {"days_left": 90 if subscription == "Standard" else 365, "subscription_type": subscription}})
+                        {"days_left": 90 if subscription.casefold == "standard" else 365,
+                            "subscription_type": subscription.capitalize()}})
         return True
 
-    if command == "remove" and user_name in database.keys() and database[user_name]["days_left"] <= 1:
+    if command.casefold() == "remove" and user_name in database.keys() and database[user_name]["days_left"] <= 1:
         database.pop(user_name)
         return True
 
