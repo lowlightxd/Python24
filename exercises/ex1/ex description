@@ -37,5 +37,13 @@ Which means that you remove from the database the user with the name
 database, if their subscription ends within a day, so for example the 
 crazy_mike's subscription still has 2 days, and you are asked to remove the
 user, functon should return false and the database should be unchanged,
-if it was 1 day, you would remove the key from the database, and return true,
-indicating that function ran successfuly. 
+if it was 1 day, you would remove the user from the database, and return true,
+indicating that function ran successfully.
+
+Add, remove, subscription_type are all keywords, and keywords in the command line should work case-insensitively.
+
+Also, sometimes the database corrupts and some random generated users become present, they are apparent by the invalid
+subscription type. After executing the prompted command you should remove all the entries with invalid subscription types
+(subscription types which are neither Standard nor Premium)
+
+You should only remove corrupted entries if the command was executed, i.e before the function returns True.

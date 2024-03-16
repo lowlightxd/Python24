@@ -1,23 +1,6 @@
 """KT Exercise Internet Provided."""
 
 
-def remove_corrupted_users(database: dict) -> None:
-    """
-    Remove corrupted user entries from the database.
-
-    Corruption is apparent when the user entry has an invalid subscription type.
-    Valid subscription types are Standard and Premium (case-sensitive)
-    """
-    list_users_to_remove = []
-
-    for user in database:
-        if database[user]["subscription_type"] not in ["Standard", "Premium"]:
-            list_users_to_remove.append(user)
-
-    for user in list_users_to_remove:
-        database.pop(user)
-
-
 def database_update(database: dict, command_string: str) -> bool:
     """
     Update database.
@@ -56,25 +39,4 @@ def database_update(database: dict, command_string: str) -> bool:
 
     return True if modification was successful and False otherwise
     """
-
-    command_list = command_string.split("-")
-    user_name = command_list[1]
-    command = command_list[0]
-    subscription = None
-
-    if len(command_list) == 3:
-        subscription = command_list[2]
-
-    if command.casefold() == "add" and user_name not in database.keys():
-        database.update({user_name:
-                        {"days_left": 90 if subscription.casefold == "standard" else 365,
-                            "subscription_type": subscription.capitalize()}})
-        remove_corrupted_users(database)
-        return True
-
-    if command.casefold() == "remove" and user_name in database.keys() and database[user_name]["days_left"] <= 1:
-        database.pop(user_name)
-        remove_corrupted_users(database)
-        return True
-
-    return False
+    return True
