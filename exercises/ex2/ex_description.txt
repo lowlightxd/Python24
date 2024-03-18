@@ -1,0 +1,24 @@
+Sandwich analysis
+
+You are tasked with the sandwich analysis.
+
+At your disposal, a diary of a perfectionist, where he types out all the sandwiches he ever made,
+and your task is to look through the diary to find the toppings he used the most.
+Out of toppings he used the most the perfect sandwich will be created and output as a string.
+
+Keep in mind that in the diary, toppings have a specific order, and you need to find
+the most used topping for every layer. All the sandwiches are constructed with exactly 4 toppings, so the perfect
+sandwich will also have 4 toppings. Toppings are ordered from layer 1 to layer 4 starting from the bottom bun at layer 0
+and the fourth topping at layer 4.
+
+Let's assume we collected the data and got the following statistics:
+    Best bun: "american white bread"
+        "ham" at layer 1 used 30 times,
+        "cheese" at layer 2 used 16 times,
+        "garlic sauce" at layer 3 used 18 times,
+        "diced red onion" at layer 4 used 10 times.
+
+    Then the best sandwich will be made out of all these ingredients and the resulting sandwich string will be:
+        "Sandwich on american white bread with ham, cheese, garlic sauce and diced red onion"
+
+If there are multiple topping with the same number of occurrences then the first that was occurred in the data is picked.
