@@ -19,7 +19,7 @@ def perfect_sandwich(data: dict) -> str:
             2: "chopped lettuce",
             3: "salad dressing",
             4: "gouda cheese"
-        }
+        },
 
         3: {
             0: "rye toast",
